@@ -1,38 +1,100 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5e237;
+  color: #000;
+  padding: 25px;
+  font-family: sans-serif;
+}
+
+.label {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: #008662;
+  padding: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.type {
+  grid-area: type-label;
+  justify-self: end;
+  padding-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dice-dropdown {
+  grid-area: type-dropdown;
+  justify-self: start;
+  width: 150px;
+  height: 50px;
+}
+
+.number {
+  grid-area: number-label;
+  justify-self: end;
+  padding-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter-number {
+  grid-area: number-select;
+  justify-self: start;
+  width: 150px;
+  height: 50px;
+}
+
+.roll-button {
+  grid-area: roll-button;
+  font-weight: bold;
+  background-color: #f58337;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  max-width: 350px;
+  height: 90%;
+  max-height: auto;
+  border-radius: 35px;
+  justify-self: center;
+  transition: 35ms transform linear;
+}
+
+.roll-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.roll-total {
+  grid-area: total-display;
+  justify-self: center;
+}
+
+.dice-roller-input {
+  width: 50%;
+  padding: 3%;
+  border: 1px #fff solid;
+  border-radius: 10px;
+  margin-top: 3%;
+  display: grid;
+  gap: 5px 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  grid-template-areas:
+    "type-label type-dropdown"
+    "number-label number-select"
+    "roll-button roll-button"
+    "total-display total-display";
 }
