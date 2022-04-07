@@ -13,13 +13,18 @@ function App() {
   const rollD = (dice) => Math.floor(Math.random() * dice + 1);
 
   //uses rollD function to roll multiple dice and return a total
-  function rollMultiple() {
+  const rollMultiple = () => {
+    setDiceTotal(0);
     // todo implement numDice
-    const count = 1;
-    for (let counter = count; counter !== 0; counter--) {
-      setDiceTotal(diceTotal + rollD(diceType));
+    // const count = numDice;
+
+    for (let counter = numDice; counter !== 0; counter--) {
+      setDiceTotal((diceTotal) => diceTotal + rollD(diceType));
+      // }
+      // for (const _ in numDice) {
+      //   setDiceTotal(diceTotal + rollD(diceType));
     }
-  }
+  };
 
   return (
     <div>
@@ -32,7 +37,6 @@ function App() {
             name="dice-dropdown"
             className="dice-dropdown"
             onChange={(e) => {
-              console.log(e.target.value);
               setDiceType(e.target.value);
             }}
             value={diceType}
@@ -48,7 +52,7 @@ function App() {
             type="number"
             min="1"
             value={numDice}
-            onChange={setNumDice}
+            onChange={(e) => setNumDice(e.target.value)}
             id="count"
             className="enter-number"
           />
