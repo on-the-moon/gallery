@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const titleText = "Roll For Whatever";
@@ -15,14 +14,9 @@ function App() {
   //uses rollD function to roll multiple dice and return a total
   const rollMultiple = () => {
     setDiceTotal(0);
-    // todo implement numDice
-    // const count = numDice;
 
     for (let counter = numDice; counter !== 0; counter--) {
       setDiceTotal((diceTotal) => diceTotal + rollD(diceType));
-      // }
-      // for (const _ in numDice) {
-      //   setDiceTotal(diceTotal + rollD(diceType));
     }
   };
 
@@ -41,8 +35,12 @@ function App() {
             }}
             value={diceType}
           >
-            {diceTypes.map((diceOption) => (
-              <option name={diceOption} value={diceOption}>
+            {diceTypes.map((diceOption, i) => (
+              <option
+                name={diceOption}
+                value={diceOption}
+                key={"diceOption_" + i}
+              >
                 d{diceOption}
               </option>
             ))}
