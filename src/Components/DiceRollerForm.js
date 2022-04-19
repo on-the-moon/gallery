@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 function DiceRollerForm() {
-  const titleText = "Roll For Whatever";
-
   const [diceType, setDiceType] = useState("4");
   const [numDice, setNumDice] = useState(1);
   const [diceTotal, setDiceTotal] = useState(0);
@@ -24,7 +22,6 @@ function DiceRollerForm() {
 
   return (
     <div>
-      <h1 className="header">{titleText}</h1>
       <div className="dice-form">
         <form name="dice-roller-input" className="dice-roller-input">
           <h2 className="attackBonus-label number label grid-section">
