@@ -1,0 +1,37 @@
+.gallery_block {
+    padding:10px;
+}
+
+.image_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 40vh;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.images {
+    border-radius: 3px;
+    width: auto;
+    height:98%;
+}
+
+.image_popup_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: #00000099;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.image_popup {
+    height: 80%;
+    width: auto;
+    border: 5px solid #FFF;
+    background: #000;
+    border-radius: 5px;
+}
