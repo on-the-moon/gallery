@@ -4,6 +4,7 @@
 
 .image_grid {
     display: grid;
+    gap: 10px 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 40vh;
     justify-content: space-evenly;
@@ -13,7 +14,11 @@
 .images {
     border-radius: 3px;
     width: auto;
-    height:98%;
+    height:100%;
+}
+
+.images:hover {
+    opacity:0.5;
 }
 
 .image_popup_box {
@@ -26,6 +31,18 @@
     height: 100vh;
     top: 0;
     left: 0;
+}
+
+.nav_arrow_back {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(318deg) brightness(110%) contrast(105%);
+    transform: rotate(270deg);
+    flex-shrink: 0;
+}
+
+.nav_arrow_forward {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(318deg) brightness(110%) contrast(105%);
+    transform: rotate(90deg);
+    flex-shrink: 0;
 }
 
 .image_popup {
