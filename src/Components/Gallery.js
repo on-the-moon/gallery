@@ -13,22 +13,26 @@ function Gallery() {
   const togglePopup = (e) => {
     setOpenPopup(!openPopup);
     setCurrentImage(e.target.src);
-    console.log(imageLinks.indexOf(currentImage));
+    indexIsValid(imageLinks, imageLinks.indexOf(currentImage));
   };
-  const indexIsValid = (array, index) => {};
+  const indexIsValid = (array, index) => {
+    if (index === 0) {
+      setIsFirstImage(true);
+    } else if (index === array.length - 1) {
+      setIsLastImage(true);
+    }
+  };
   const nextImage = (e) => {
     e.stopPropagation();
     const currentImageIndex = imageLinks.indexOf(currentImage);
     setCurrentImage(imageLinks[currentImageIndex + 1]);
+    indexIsValid(imageLinks, currentImageIndex);
   };
   const lastImage = (e) => {
-    if (imageLinks.indexOf(currentImage) > 0) {
-      e.stopPropagation();
-      const currentImageIndex = imageLinks.indexOf(currentImage);
-      setCurrentImage(imageLinks[currentImageIndex - 1]);
-    } else {
-      setIsFirstImage(true);
-    }
+    e.stopPropagation();
+    const currentImageIndex = imageLinks.indexOf(currentImage);
+    setCurrentImage(imageLinks[currentImageIndex - 1]);
+    indexIsValid(imageLinks, currentImageIndex);
   };
 
   return (
