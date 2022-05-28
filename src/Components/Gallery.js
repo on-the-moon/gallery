@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { isCompositeComponent } from "react-dom/test-utils";
 import album from "./api-mock.json";
 import styles from "./Gallery.module.css";
 import navArrow from "./images/up-arrow.svg";
@@ -8,31 +7,35 @@ function Gallery() {
   const imageLinks = imageList.map((image) => image.link);
   const [openPopup, setOpenPopup] = useState(false);
   const [currentImage, setCurrentImage] = useState();
-  const [isLastImage, setIsLastImage] = useState(false);
-  const [isFirstImage, setIsFirstImage] = useState(false);
+
+  //boolean checks for conditionally rendering navigation arrows
+
+  const displayNavArrowForward = (index) => {
+    return index < imageLinks.length - 1;
+  };
+
+  const displayNavArrowBackward = (index) => {
+    return index !== 0;
+  };
+
   const togglePopup = (e) => {
-    setOpenPopup(!openPopup);
     setCurrentImage(e.target.src);
-    indexIsValid(imageLinks, imageLinks.indexOf(currentImage));
+    setOpenPopup(!openPopup);
+    console.log("displayNavArrow: ", displayNavArrowForward());
   };
-  const indexIsValid = (array, index) => {
-    if (index === 0) {
-      setIsFirstImage(true);
-    } else if (index === array.length - 1) {
-      setIsLastImage(true);
-    }
-  };
+
+  //update currentImage by checking index and updating +1 or -1
+
   const nextImage = (e) => {
     e.stopPropagation();
     const currentImageIndex = imageLinks.indexOf(currentImage);
     setCurrentImage(imageLinks[currentImageIndex + 1]);
-    indexIsValid(imageLinks, currentImageIndex);
   };
+
   const lastImage = (e) => {
     e.stopPropagation();
     const currentImageIndex = imageLinks.indexOf(currentImage);
     setCurrentImage(imageLinks[currentImageIndex - 1]);
-    indexIsValid(imageLinks, currentImageIndex);
   };
 
   return (
@@ -48,30 +51,37 @@ function Gallery() {
           />
         ))}
       </div>
+      {/* conditionally render full image on openPopup check */}
       {openPopup && (
         <div
           className={styles.image_popup_box}
           onClick={() => setOpenPopup(!openPopup)}
         >
-          <img
-            src={navArrow}
-            className={styles.nav_arrow_back}
-            height="200"
-            width="200"
-            onClick={lastImage}
-          />
+          {/* conditionally render navigation arrow based on function return value */}
+          {displayNavArrowBackward(imageLinks.indexOf(currentImage)) && (
+            <img
+              src={navArrow}
+              className={styles.nav_arrow_back}
+              height="200"
+              width="200"
+              onClick={lastImage}
+            />
+          )}
           <img
             src={currentImage}
             className={styles.image_popup}
             onClick={(e) => e.stopPropagation()}
           />
-          <img
-            src={navArrow}
-            className={styles.nav_arrow_forward}
-            height="200"
-            width="200"
-            onClick={nextImage}
-          />
+          {/* conditionally render navigation arrow based on function return value */}
+          {displayNavArrowForward(imageLinks.indexOf(currentImage)) && (
+            <img
+              src={navArrow}
+              className={styles.nav_arrow_forward}
+              height="200"
+              width="200"
+              onClick={nextImage}
+            />
+          )}
         </div>
       )}
     </div>
