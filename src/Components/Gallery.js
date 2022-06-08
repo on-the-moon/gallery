@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import album from "./api-mock.json";
 import styles from "./Gallery.module.css";
 import navArrow from "./images/up-arrow.svg";
+
 function Gallery() {
   const imageList = album.data.images;
   const imageLinks = imageList.map((image) => image.link);
@@ -24,7 +25,7 @@ function Gallery() {
     console.log("displayNavArrow: ", displayNavArrowForward());
   };
 
-  //update currentImage by checking index and updating +1 or -1
+  //update currentImage by checking index of current image and updating +1 or -1
 
   const nextImage = (e) => {
     e.stopPropagation();
@@ -87,4 +88,5 @@ function Gallery() {
     </div>
   );
 }
+
 export default Gallery;

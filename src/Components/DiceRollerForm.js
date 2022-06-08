@@ -13,7 +13,7 @@ function DiceRollerForm() {
 
   //uses rollD function to roll multiple dice and return a total
   const rollMultiple = () => {
-    setDiceTotal(attackBonus);
+    setDiceTotal(damageBonus);
     setAttackRollTotal(rollD(20) + attackBonus);
     for (let counter = numDice; counter !== 0; counter--) {
       setDiceTotal((diceTotal) => diceTotal + rollD(diceType));
