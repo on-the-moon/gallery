@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DiceRollerForm from "./DiceRollerForm";
+import styles from "./DiceRollerPage.module.css";
 
 function DiceRollerPage() {
   const [diceRollers, setDiceRollers] = useState([<DiceRollerForm />]);
@@ -12,13 +13,17 @@ function DiceRollerPage() {
   };
 
   return (
-    <div className="rollers">
+    <div className={styles.rollers}>
       {diceRollers}
-      <button type="button" onClick={addDiceForm}>
-        <p>Add One</p>
+      <button type="button" onClick={addDiceForm} className={styles.add_button}>
+        <p>+</p>
       </button>
-      <button type="button" onClick={removeDiceForm}>
-        <p>Remove One</p>
+      <button
+        type="button"
+        onClick={removeDiceForm}
+        className={styles.remove_button}
+      >
+        <p>-</p>
       </button>
     </div>
   );

@@ -1,0 +1,126 @@
+h2 {
+  padding: 0.25rem 1rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.grid_area {
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem;
+}
+
+.dice_form {
+  display: inline-flex;
+}
+
+.label {
+  text-align: center;
+}
+
+.attackBonus_label {
+  grid-area: attackBonus-label;
+  justify-self: start;
+}
+
+.attackBonus_entry {
+  grid-area: attackBonus-entry;
+  justify-self: start;
+  width: 75px;
+}
+
+.diceType_label {
+  grid-area: diceType-label;
+  justify-self: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diceType_entry {
+  grid-area: diceType-entry;
+  justify-self: start;
+  width: 75px;
+  border-radius: 0px;
+}
+
+.numDice_label {
+  grid-area: numDice-label;
+  justify-self: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.numDice_entry {
+  grid-area: numDice-entry;
+  justify-self: start;
+  font-size: 0.9rem;
+  text-indent: 0.35rem;
+  width: 75px;
+}
+
+.damageBonus_label {
+  grid-area: damageBonus-label;
+  justify-self: start;
+}
+
+.damageBonus_entry {
+  grid-area: damageBonus-entry;
+  justify-self: start;
+  width: 75px;
+}
+
+.roll_button {
+  grid-area: roll-button;
+  font-weight: bold;
+  background: #fd5605;
+  border: 0px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  min-height: 35px;
+  max-height: auto;
+  border-radius: 35px;
+  justify-self: center;
+  transition: 35ms transform ease-in;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.roll_button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.attackRoll_total {
+  grid-area: attackRoll-total;
+  justify-self: center;
+}
+
+.damageRoll_total {
+  grid-area: damageRoll-total;
+  justify-self: center;
+}
+
+.dice_roller_input {
+  margin: 1rem;
+  padding: 1rem;
+  background: #468bae;
+  /* border: 1px #fd5605 solid;
+  border-width: 3px; */
+  border-radius: 10px;
+  margin-top: 3%;
+  display: grid;
+  gap: 5px 5px;
+  grid-template-columns: auto auto;
+  grid-auto-rows: 1fr;
+  grid-template-areas:
+    "attackBonus-label attackBonus-entry"
+    "diceType-label diceType-entry"
+    "numDice-label numDice-entry"
+    "damageBonus-label damageBonus-entry"
+    "roll-button roll-button"
+    "attackRoll-total attackRoll-total"
+    "damageRoll-total damageRoll-total";
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./DiceRollerForm.module.css";
 
 function DiceRollerForm() {
   const [diceType, setDiceType] = useState("4");
@@ -7,7 +8,7 @@ function DiceRollerForm() {
   const [attackBonus, setAttackBonus] = useState(0);
   const [damageBonus, setDamageBonus] = useState(0);
   const [attackRollTotal, setAttackRollTotal] = useState(0);
-  const diceTypes = [4, 6, 8, 12, 20, 50, 100];
+  const diceTypes = [4, 6, 8, 10, 12, 20, 50, 100];
 
   const rollD = (dice) => Math.floor(Math.random() * dice + 1);
 
@@ -22,10 +23,12 @@ function DiceRollerForm() {
 
   return (
     <div>
-      <div className="dice-form">
-        <form name="dice-roller-input" className="dice-roller-input">
-          <h2 className="attackBonus-label number label grid-section">
-            Enter Your Attack Bonus
+      <div className={styles.dice_form}>
+        <form name="dice-roller-input" className={styles.dice_roller_input}>
+          <h2
+            className={`${styles.attackBonus_label} ${styles.number} ${styles.label} ${styles.grid_section}`}
+          >
+            Enter your Attack Bonus:
           </h2>
           <input
             type="number"
@@ -33,14 +36,16 @@ function DiceRollerForm() {
             value={attackBonus}
             onChange={(e) => setAttackBonus(+e.target.value)}
             id="count"
-            className="attackBonus-entry grid-section"
+            className={`${styles.attackBonus_entry} ${styles.grid_section}`}
           />
-          <h2 className="diceType-label type label grid-section">
-            Select Dice Type
+          <h2
+            className={`${styles.diceType_label} ${styles.type} ${styles.abel} ${styles.grid_section}`}
+          >
+            Select Dice Type:
           </h2>
           <select
             name="dice-dropdown"
-            className="diceType-entry grid-section"
+            className={`${styles.diceType_entry} ${styles.grid_section}`}
             onChange={(e) => {
               setDiceType(+e.target.value);
             }}
@@ -56,8 +61,10 @@ function DiceRollerForm() {
               </option>
             ))}
           </select>
-          <h2 className="numDice-label number label grid-section">
-            Enter Number of Dice
+          <h2
+            className={`${styles.numDice_label} ${styles.number} ${styles.label} ${styles.grid_section}`}
+          >
+            Enter Number of Dice:
           </h2>
           <input
             type="number"
@@ -65,10 +72,10 @@ function DiceRollerForm() {
             value={numDice}
             onChange={(e) => setNumDice(+e.target.value)}
             id="count"
-            className="numDice-entry grid-section"
+            className={`${styles.numDice_entry} ${styles.grid_section}`}
           />
-          <h2 className="damageBonus-label grid-section">
-            Enter your damage bonus
+          <h2 className={`${styles.damageBonus_label} ${styles.grid_section}`}>
+            Enter your Damage Bonus:
           </h2>
           <input
             type="number"
@@ -76,26 +83,25 @@ function DiceRollerForm() {
             value={damageBonus}
             onChange={(e) => setDamageBonus(+e.target.value)}
             id="bonus"
-            className="damageBonus-entry grid-section"
+            className={`${styles.damageBonus_entry} ${styles.grid_section}`}
           />
           <button
             type="button"
             onClick={rollMultiple}
-            className="roll-button grid-section"
+            className={`${styles.roll_button} ${styles.grid_section}`}
           >
             <p>Roll It</p>
           </button>
           <h2
             name="attack-roll-total"
-            className="attackRoll-total grid-section"
+            className={`${styles.attackRoll_total} ${styles.grid_section}`}
           >
-            {" "}
             Rolled
             <span> {attackRollTotal}</span> to hit.
           </h2>
           <h2
             name="damage-roll-total"
-            className="damageRoll-total grid-section"
+            className={`${styles.damageRoll_total} ${styles.grid_section}`}
           >
             <span id="damage-roll-total">{diceTotal}</span> damage dealt on hit!
           </h2>
