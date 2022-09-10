@@ -16,14 +16,14 @@ function DiceRollerPage() {
     <div className={styles.rollers}>
       {diceRollers}
       <button type="button" onClick={addDiceForm} className={styles.add_button}>
-        <p>+</p>
+        <h2>Add One</h2>
       </button>
       <button
         type="button"
         onClick={removeDiceForm}
         className={styles.remove_button}
       >
-        <p>-</p>
+        <h2>Remove One</h2>
       </button>
     </div>
   );
