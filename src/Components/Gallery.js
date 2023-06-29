@@ -3,7 +3,7 @@ import photoset from "./flickr api-mock.json";
 import styles from "./Gallery.module.css";
 import navArrow from "./images/up-arrow.svg";
 
-function Gallery(photosetId) {
+function Gallery() {
   const flickrList = photoset.photoset.photo;
   const flickrLinks = flickrList.map(
     (image) =>

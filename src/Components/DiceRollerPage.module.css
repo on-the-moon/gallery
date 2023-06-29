@@ -1,31 +1,23 @@
-h2 {
-  padding: 0.25rem 1rem;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
 .add_button {
-  background-color: #fd5605;
+  background-color: #468bae;
   color: #fff;
   margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  min-width: 150px;
-  min-height: 35px;
+  font-size: 8rem;
+  width: 10rem;
+  height: 10rem;
   border: 0px solid;
-  border-radius: 35px;
+  border-radius: 10%;
   display: inline;
 }
 
 .remove_button {
-  background-color: #fd5605;
+  background-color: #468bae;
   color: #fff;
   margin: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  min-width: 150px;
-  min-height: 35px;
+  font-size: 8rem;
+  width: 10rem;
+  height: 10rem;
   border: 0px solid;
-  border-radius: 35px;
+  border-radius: 10%;
   display: inline;
 }

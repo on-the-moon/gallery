@@ -1,12 +1,13 @@
-import React from "react";
 import "./App.css";
-import Main from "./Components/Main";
+// import DiceRollerForm from "./Components/DiceRollerForm";
+// import Gallery from "./Components/Gallery";
+import DiceRollerPage from "./Components/DiceRollerPage";
+import React from "react";
 
 function App() {
-  document.title = "Nona Moore";
   return (
     <div className="App">
-      <Main />
+      <DiceRollerPage />
     </div>
   );
 }
